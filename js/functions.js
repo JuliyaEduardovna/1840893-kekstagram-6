@@ -1,14 +1,11 @@
 /* First task */
 
 function checkLengthStr(str, maxLength) {
-  if (str.length === maxLength) {
-    return true;
-  }
-  return false;
+  return str.length <= maxLength;
 }
 
 checkLengthStr('test', 5);
-checkLengthStr('test2', 5);
+checkLengthStr('проверяемая строка', 10);
 
 /* Second task */
 
@@ -18,15 +15,11 @@ function isPalindrome(str) {
   for (let i = newStr.length - 1; i >= 0; i--) {
     result += newStr.at(i);
   }
-  if (result === newStr) {
-    return true;
-  }
-  return false;
+  return result === newStr;
 }
 
 isPalindrome('Лёша на полке клопа нашёл ');
 isPalindrome('Кекс');
-
 
 /* Third task */
 
