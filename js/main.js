@@ -68,3 +68,6 @@ const getPucture = (id) => ({
 const picture = Array.from({ length: PICTURE_COUNT }, (_, id) =>
   getPucture(id)
 );
+
+/* eslint-disable-next-line no-console */
+console.log(picture);
