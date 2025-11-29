@@ -17,4 +17,18 @@ const getRandomMessage = () => {
     : `${firstSentence} ${getRandomArrayElement(MESSAGE)}`;
 };
 
-export { getRandomInteger, getRandomArrayElement, getRandomMessage };
+let postId = 0;
+let commentId = 0;
+let photoId = 0;
+const getPostId = () => ++postId;
+const getCommentId = () => ++commentId;
+const getPhotoId = () => ++photoId;
+
+export {
+  getRandomInteger,
+  getRandomArrayElement,
+  getRandomMessage,
+  getPostId,
+  getCommentId,
+  getPhotoId,
+};
