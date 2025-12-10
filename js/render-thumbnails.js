@@ -1,3 +1,5 @@
+import { openFullPhoto } from './render-full-photo.js';
+
 const renderThumbnail = (posts) => {
   const pictureTemplate = document.querySelector('#picture').content;
   const picturesContainer = document.querySelector('.pictures');
@@ -16,7 +18,10 @@ const renderThumbnail = (posts) => {
     img.alt = post.description;
     likes.textContent = post.likes;
     comments.textContent = post.comments.length;
-
+    pictureElement.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      openFullPhoto(post);
+    });
     fragment.append(pictureElement);
   });
 
