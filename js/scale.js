@@ -1,13 +1,12 @@
+import { SCALE_MAX, SCALE_MIN, SCALE_STEP } from './constants.js';
+
 const initScale = () => {
   const btnSmaller = document.querySelector('.scale__control--smaller');
   const btnBigger = document.querySelector('.scale__control--bigger');
   const scaleControl = document.querySelector('.scale__control--value');
   const previewImg = document.querySelector('.img-upload__preview img');
 
-  let currentScale = 100;
-  scaleControl.value = `${100}%`; // change an initial value on the page
-
-  /* Set a scale */
+  let currentScale = SCALE_MAX;
 
   const applyScale = (value) => {
     currentScale = value;
@@ -17,15 +16,31 @@ const initScale = () => {
 
   /* Event Listeners */
 
-  btnSmaller.addEventListener('click', () => {
-    const newScale = Math.max(25, currentScale - 25);
-    applyScale(newScale);
-  });
+  const onSmallerClick = () =>
+    applyScale(Math.max(SCALE_MIN, currentScale - SCALE_STEP));
 
-  btnBigger.addEventListener('click', () => {
-    const newScale = Math.min(100, currentScale + 25);
-    applyScale(newScale);
-  });
+  const onBiggerClick = () =>
+    applyScale(Math.min(SCALE_MAX, currentScale + SCALE_STEP));
+
+  const enable = () => {
+    applyScale(SCALE_MAX);
+
+    /* Added an event listeners */
+
+    btnSmaller.addEventListener('click', onSmallerClick);
+    btnBigger.addEventListener('click', onBiggerClick);
+  };
+
+  const disable = () => {
+    applyScale(SCALE_MAX);
+
+    /* Deleted an event listeners */
+
+    btnSmaller.removeEventListener('click', onSmallerClick);
+    btnBigger.removeEventListener('click', onBiggerClick);
+  };
+
+  return { enable, disable };
 };
 
 export { initScale };
