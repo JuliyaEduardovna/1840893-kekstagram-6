@@ -1430,3 +1430,20 @@ main {
   width: 450px;
   font-family: inherit;
 }
+
+.error_container {
+  background-color: #f85757;
+  position: absolute;
+  color: #cccccc;
+  font-size: 14px;
+  margin: 0 auto;
+  z-index: 3;
+  width: 450px;
+  font-family: inherit;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 10px;
+}
+

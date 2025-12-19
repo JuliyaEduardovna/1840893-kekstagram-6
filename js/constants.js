@@ -16,6 +16,8 @@ const HASHTAG_LENGTH_MAX = 20;
 
 const DESCRIPTION_LENGTH_MAX = 140;
 
+const BASE_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
+
 const REGEX_FOR_HASHTAG = /^#[A-Za-zА-Яа-яЁё0-9]+$/i;
 
 const NAME = ['Андрей', 'Киррил', 'Ева', 'Владимир', 'Юлия', 'Роман'];
@@ -42,4 +44,4 @@ const DESCRIPTION = [
   'Скальная арка над морем, где волны бьют строго по KPI приливов.',
 ];
 
-export {PICTURE_COUNT, LIKE_MIN, LIKE_MAX, AVATAR_COUNT, COMMENT_COUNT, NAME, MESSAGE, DESCRIPTION, COMMENTS_PER_PAGE, REGEX_FOR_HASHTAG, HASHTAG_COUNT_MAX, HASHTAG_LENGTH_MAX, DESCRIPTION_LENGTH_MAX};
+export {PICTURE_COUNT, LIKE_MIN, LIKE_MAX, AVATAR_COUNT, COMMENT_COUNT, NAME, MESSAGE, DESCRIPTION, COMMENTS_PER_PAGE, REGEX_FOR_HASHTAG, HASHTAG_COUNT_MAX, HASHTAG_LENGTH_MAX, DESCRIPTION_LENGTH_MAX, BASE_URL};

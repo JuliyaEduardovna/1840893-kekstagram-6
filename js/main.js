@@ -1,6 +1,7 @@
-import { generatePosts } from './data.js';
 import { renderThumbnail } from './render-thumbnails.js';
 import { initForm } from './form.js';
+import { getPosts } from './api.js';
 
-renderThumbnail(generatePosts());
+getPosts().then((posts) => renderThumbnail(posts));
+
 initForm();

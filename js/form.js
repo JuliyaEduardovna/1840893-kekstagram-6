@@ -1,4 +1,6 @@
 import { initValidation } from './validation.js';
+import { sendData } from './api.js';
+import { showMessage } from './messages.js';
 
 function initForm() {
   const uploadImg = document.querySelector('.img-upload__input');
@@ -7,6 +9,7 @@ function initForm() {
   const hashtag = document.querySelector('.text__hashtags');
   const description = document.querySelector('.text__description');
   const form = document.querySelector('.img-upload__form');
+  const submitBtn = form.querySelector('.img-upload__submit');
 
   /* Validation */
 
@@ -73,9 +76,23 @@ function initForm() {
     }
   }
 
-  function onFormSubmit(evt) {
+  async function onFormSubmit(evt) {
+    evt.preventDefault();
+
     if (!pristine.validate()) {
-      evt.preventDefault();
+      return;
+    }
+
+    submitBtn.disabled = true;
+
+    try {
+      await sendData(new FormData(form));
+      closeOverlay();
+      showMessage('success');
+    } catch (err) {
+      showMessage('error');
+    } finally {
+      submitBtn.disabled = false;
     }
   }
 }
