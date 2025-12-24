@@ -16,6 +16,8 @@ const HASHTAG_LENGTH_MAX = 20;
 
 const DESCRIPTION_LENGTH_MAX = 140;
 
+const BASE_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
+
 const SCALE_STEP = 25;
 
 const SCALE_MIN = 25;
@@ -89,4 +91,5 @@ export {
   SCALE_MAX,
   SCALE_MIN,
   SCALE_STEP,
+  BASE_URL
 };
