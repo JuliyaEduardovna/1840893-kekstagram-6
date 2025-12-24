@@ -1,6 +1,8 @@
 import { initValidation } from './validation.js';
 import { sendData } from './api.js';
 import { showMessage } from './messages.js';
+import { initScale } from './scale.js';
+import { initEffects } from './effects.js';
 
 function initForm() {
   const uploadImg = document.querySelector('.img-upload__input');
@@ -21,11 +23,43 @@ function initForm() {
 
   initValidation(pristine, hashtag, description);
 
+  const scale = initScale();
+  const effects = initEffects();
+
+  /* Event Listeners */
+
+  function onDocumentKeydown(evt) {
+    if (evt.key === 'Escape') {
+      closeOverlay();
+    }
+  }
+
+  function onHashtagKeydown(evt) {
+    if (evt.key === 'Escape') {
+      evt.stopPropagation();
+    }
+  }
+
+  function onDescriptionKeydown(evt) {
+    if (evt.key === 'Escape') {
+      evt.stopPropagation();
+    }
+  }
+
+  function onFormSubmit(evt) {
+    if (!pristine.validate()) {
+      evt.stopPropagation();
+    }
+  }
+
   /* Events of form */
 
   function openOverlay() {
     overlay.classList.remove('hidden');
     document.body.classList.add('modal-open');
+
+    scale.enable();
+    effects.enable();
 
     /* Added Event Listeners */
 
@@ -45,6 +79,9 @@ function initForm() {
     form.reset();
     pristine.reset();
 
+    scale.disable();
+    effects.disable();
+
     /* Deleted Event Listeners */
 
     document.removeEventListener('keydown', onDocumentKeydown);
@@ -53,8 +90,6 @@ function initForm() {
     closeBtn.removeEventListener('click', closeOverlay);
     form.removeEventListener('submit', onFormSubmit);
   }
-
-  /* Event Listeners */
 
   uploadImg.addEventListener('change', openOverlay);
 
