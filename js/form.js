@@ -40,6 +40,13 @@ function initForm() {
 
   function onDocumentKeydown(evt) {
     if (evt.key === 'Escape') {
+      const errorMessage = document.querySelector('.error');
+      const successMessage = document.querySelector('.success');
+
+      if (errorMessage || successMessage) {
+        return;
+      }
+
       closeOverlay();
     }
   }
