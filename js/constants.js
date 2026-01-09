@@ -37,6 +37,8 @@ const RENDER_DELAY = 500;
 
 const NAME = ['Андрей', 'Киррил', 'Ева', 'Владимир', 'Юлия', 'Роман'];
 
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+
 const MESSAGE = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -101,6 +103,7 @@ export {
   SCALE_MIN,
   SCALE_STEP,
   BASE_URL,
+  FILE_TYPES,
   FILTERS,
   RENDER_DELAY,
   RANDOM_POSTS_COUNT
